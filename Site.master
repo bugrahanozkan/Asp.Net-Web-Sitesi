@@ -1,0 +1,295 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>AES ISI SİSTEMLERİ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="AES RADYANT - ISI SİSTEMLERİ" />
+    <meta name="keywords" content="AES RADYANT - ISI SİSTEMLERİ" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="/css/font-awesome.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/animate.css" rel="stylesheet" />
+    <link href="/css/mobil.css" rel="stylesheet" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/wow.min.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="shortcut icon" href="/img/Slogo.ico" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div class="top_nav wow fadeInDown">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col d-flex ">
+                        <div class="col">
+                        <div class="top_bar_contact_item wow fadeInLeft">
+                            <div class="top_bar_icon"><i class="fa fa-phone" aria-hidden="true"></i><a href="tel: +905397711307"> 0539 771 13 07 </a></div>
+                        </div>
+                        <div class="top_bar_contact_item wow fadeInLeft">
+                            <div class="top_bar_icon"><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:aesradyant@gmail.com"> aesradyant@gmail.com</a></div>
+                        </div>
+                            </div> <div class="col" style="padding:0">
+                        <div class="top_bar_content ml-auto wow fadeInRight">
+                            <div class="footer_social" style="margin-top: 12px; margin-left: 20px">
+                                <ul>
+
+                                    <li><a target="_blank" href="https://twitter.com/aesradyant?s=11"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+
+                                    <li><a target="_blank" href="https://www.instagram.com/aesradyant/?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <header class="wow fadeInDown">
+
+            <div class="hiddendiv">
+                <div class="logo wow fadeInLeft">
+                    <a href="/">
+                        <img src="/img/Slogo.jpg" style="width: 100%" /></a>
+                </div>
+            </div>
+            <div class="menu_opener tt-menu-toggle">
+                <img src="/img/menu.svg" />
+            </div>
+            <div class="navi wow fadeIn">
+                <ul>
+                    <li><a title="" href="/"><i class="fa fa-home" style="font-size: 19px; position: relative; bottom: -2px;" aria-hidden="true"></i></a></li>
+                    <li><a title="" href="/">Anasayfa</a></li>
+
+                    <%--<li class="openable"><a title="" class="acilir" href="#">Ürünlerimiz <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                        <ul class="anasub shadow">
+                            <asp:Literal ID="ltrlmenu" runat="server"></asp:Literal>
+                        </ul>
+                    </li>--%>
+
+                    <%--<asp:Repeater ID="rpsayfakat" runat="server" OnItemDataBound="rpsayfakat_ItemDataBound">
+                        <ItemTemplate>
+
+                            <li class="openable"><a class="acilir" title="<%#Eval("KategoriAdi") %> " href="#"><%#Eval("KategoriAdi") %> <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <ul class="shadow anasub">
+                                    <asp:Repeater ID="rp" runat="server" OnItemDataBound="rp_ItemDataBound">
+                                        <ItemTemplate>
+                                            <li><a title="<%#Eval("KategoriAdi") %> " href='<asp:Literal ID="ltrl" runat="server"></asp:Literal>/<%#Seo.urlseo(Eval("KategoriAdi").ToString()) %>-detay-<%#Eval("KategoriID") %>'><%#Eval("KategoriAdi") %> </a></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </ul>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>--%>
+                    <asp:Repeater ID="rpmenusira" runat="server">
+                        <ItemTemplate>
+                            <li><a title="<%#Eval("MenuAdi") %>" href="/<%#Eval("Link") %>"><%#Eval("MenuAdi") %></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    
+                            
+                </ul>
+            </div>
+            <div class="hiddendiv1">
+                <div class="user wow fadeInRight">
+                    <div class="arama"><i class="fa fa-search" aria-hidden="true"></i></div>
+                    <div class="user-o"></div>
+                </div>
+            </div>
+            <div class="bgshadow wow fadeInDown" style="display: none; width: 100%; float: left; height: 5px; background: #2f6396; position: relative; z-index: 40"></div>
+        </header>
+
+        <asp:ContentPlaceHolder ID="cnticerik" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="mask"></div>
+        <div class="aramabox wow fadeIn">
+            <div class="col-md-10">
+                <asp:TextBox ID="txtara" placeholder="Aranacak Kelime..." Style="background: #0c1828; width: 100%; outline: none !important; height: 60px; text-transform: uppercase; border: none; color: #fff" runat="server" CssClass="form-control"></asp:TextBox>
+            </div>
+            <div class="col-md-2 " style="float: right; padding: 0">
+                <asp:LinkButton ID="btnara" CssClass="btnara wow fadeIn" runat="server"><i class="fa fa-search" aria-hidden="true"></i></asp:LinkButton>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="clearfix"></div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 footer_col wow fadeInLeft">
+                        <div class="footer_column footer_contact">
+
+                            <div class="footer_title">
+                                <h3 style="color: #fff">Biz Kimiz ?</h3>
+                            </div>
+                            <div class="cizgi"></div>
+
+
+                            <div class="footer_contact_text">
+                                <p style="color: #fff"><%Response.Write(hak); %></p>
+
+                            </div>
+                            <div class="footer_social">
+                                <ul>
+
+                                    <asp:Repeater ID="rpsosyal" runat="server">
+                                        <ItemTemplate>
+                                            <li><a target="_blank" href="<%#Eval("Link") %>"><i class="<%#Eval("ResimAdi") %>"></i></a></li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 wow fadeInLeft" style="padding-top: 10px;">
+                        <div class="footer_column">
+                            <div class="footer_title">Hızlı Menü</div>
+                            <div class="cizgi"></div>
+                            <ul class="footer_list">
+                                <li><a href="/"><i class="fa fa-caret-right fa-fw" aria-hidden="true"></i>Anasayfa</a></li>
+								<asp:Repeater ID="rp_alt_menu" runat="server">
+                                        <ItemTemplate>
+                                            <li><a target="_blank" href="<%#Eval("Link") %>"> <i class="fa fa-caret-right fa-fw" aria-hidden="true"> </i><%#Eval("MenuAdi") %></a></li>
+                                        </ItemTemplate>
+								</asp:Repeater>
+                                
+
+                            </ul>
+
+                        </div>
+                    </div>
+
+                   <%-- <div class="col-lg-3 wow fadeInRight" style="padding-top: 10px;">
+                        <div class="footer_column">
+                            <div class="footer_title">Ürünlerimiz</div>
+                            <div class="cizgi"></div>
+                            <ul class="footer_list">
+                                <asp:Repeater ID="rpfooterurunler" runat="server">
+                                    <ItemTemplate>
+                                        <li>
+                                            <a href="/<%# Seo.urlseo(Eval("KategoriAdi").ToString()) %>-grubu-<%#Eval("KategoriID") %>""><i class="fa fa-caret-right fa-fw" aria-hidden="true"></i> <%#Eval("KategoriAdi") %></a>
+                                        </li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ul>
+                        </div>
+                    </div>--%>
+
+                    <div class="col-lg-4 wow fadeInRight" style="padding-top: 10px;">
+                        <div class="footer_column">
+                            <div class="footer_title">İletişim</div>
+                            <div class="cizgi"></div>
+                            <ul class="footer_list">
+                                <li><%Response.Write(iletisim); %></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- Copyright -->
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                        <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                            <div class="copyright_content wow fadeInLeft">
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                tüm Hakları Saklıdır.
+                                <br>
+                            </div>
+                            <div class="logos ml-sm-auto wow fadeInRight">
+                                <ul class="logos_list copyright_content">
+                                    <li>Designed by  <a href="https://www.nivket.com" target="_blank" style="color: #1e293f;font-weight: 600;">Nivket</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+   
+        <div class="whatsappme__button">
+            <a target="_blank" href="https://api.whatsapp.com/send?phone=905397711307&text=Merhaba bilgi almak istiyorum. Yardımcı olur musunuz?">
+                <svg class="whatsappme__button__open" viewBox="0 0 24 24">
+                    <path fill="#fff" d="M3.516 3.516c4.686-4.686 12.284-4.686 16.97 0 4.686 4.686 4.686 12.283 0 16.97a12.004 12.004 0 01-13.754 2.299l-5.814.735a.392.392 0 01-.438-.44l.748-5.788A12.002 12.002 0 013.517 3.517zm3.61 17.043l.3.158a9.846 9.846 0 0011.534-1.758c3.843-3.843 3.843-10.074 0-13.918-3.843-3.843-10.075-3.843-13.918 0a9.846 9.846 0 00-1.747 11.554l.16.303-.51 3.942a.196.196 0 00.219.22l3.961-.501zm6.534-7.003l-.933 1.164a9.843 9.843 0 01-3.497-3.495l1.166-.933a.792.792 0 00.23-.94L9.561 6.96a.793.793 0 00-.924-.445 1291.6 1291.6 0 00-2.023.524.797.797 0 00-.588.88 11.754 11.754 0 0010.005 10.005.797.797 0 00.88-.587l.525-2.023a.793.793 0 00-.445-.923L14.6 13.327a.792.792 0 00-.94.23z"></path></svg>
+                <div class="whatsappme__button__sendtext">Open chat</div>
+                <svg class="whatsappme__button__send" viewBox="0 0 400 400" fill="none" fill-rule="evenodd" stroke="#fff" stroke-linecap="round" stroke-width="33">
+                    <path class="wame_plain" stroke-dasharray="1096.67" stroke-dashoffset="1096.67" d="M168.83 200.504H79.218L33.04 44.284a1 1 0 0 1 1.386-1.188L365.083 199.04a1 1 0 0 1 .003 1.808L34.432 357.903a1 1 0 0 1-1.388-1.187l29.42-99.427"></path>
+                    <path class="wame_chat" stroke-dasharray="1019.22" stroke-dashoffset="1019.22" d="M318.087 318.087c-52.982 52.982-132.708 62.922-195.725 29.82l-80.449 10.18 10.358-80.112C18.956 214.905 28.836 134.99 81.913 81.913c65.218-65.217 170.956-65.217 236.174 0 42.661 42.661 57.416 102.661 44.265 157.316"></path>
+                </svg></a>
+        </div>
+
+        <!-- tt-mobile menu -->
+        <nav class="panel-menu mobile-main-menu">
+            <ul>
+                <li>
+                    <a href="/">ANASAYFA</a>
+                </li>
+              
+             <%--   <li>
+                    <a href="#">ÜRÜNLERİMİZ</a>
+                    <ul>
+
+                        <asp:Repeater ID="rpkatmobil" runat="server" OnItemDataBound="rpkatmobil_ItemDataBound">
+                            <ItemTemplate>
+                                <li>
+                                    <a href="/<%# Seo.urlseo(Eval("KategoriAdi").ToString()) %>-grubu-<%#Eval("KategoriID") %>""><%#Eval("KategoriAdi") %></a>
+                                    <ul>
+                                        <asp:Repeater ID="rpalt" runat="server">
+                                            <ItemTemplate>
+                                                <li><a href="/<%# Seo.urlseo(Eval("KategoriAdi").ToString()) %>-grubu-<%#Eval("KategoriID") %>"><%#Eval("KategoriAdi") %></a></li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
+                                </li>
+
+                            </ItemTemplate>
+                        </asp:Repeater>
+
+                    </ul>
+                </li>--%>
+                 
+                <asp:Repeater ID="rpmenu2" runat="server">
+                    <ItemTemplate>
+                        <li class="dropdown"><a title="<%#Eval("MenuAdiBig") %>" href="/<%#Eval("Link") %>"><%#Eval("MenuAdiBig") %></a></li>
+                    </ItemTemplate>
+                </asp:Repeater>
+                  
+            </ul>
+            <div class="mm-navbtn-names">
+                <div class="mm-closebtn">Kapat</div>
+                <div class="mm-backbtn">Geri</div>
+            </div>
+        </nav>
+        <script src="/js/jquery.themepunch.tools.min.js"></script>
+        <script src="/js/jquery.themepunch.revolution.min.js"></script>
+          <script src="/js/panelmenu.js"></script>
+        <script src="/js/lazyload.min.js"></script>
+        <script src="/js/menu.js"></script>
+      
+        
+    </form>
+</body>
+</html>
